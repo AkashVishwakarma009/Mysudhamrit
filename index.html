@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudhamrit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="/img/111.png" rel="icon">
+    <style>
+        /* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #f79d00, #dbc60a);
+
+    padding: 15px 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.navbar .logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6f61;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        transition: height 0.3s ease;
+    }
+
+    .nav-links.active {
+        height: auto;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Navbar Links Active State for Mobile */
+.nav-links.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 6px;
+}
+
+.nav-links.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-links.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -6px;
+}
+
+.footer-contact {
+    margin: 20px 0;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    margin: 10px 0;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: #ff6f61;
+    width: 20px;
+}
+
+/* Animation for navbar items */
+.nav-links li a {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff6f61;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Logo animation */
+.navbar .logo img {
+    animation: pulse 2s infinite;
+}
+
+/* Keyframes for animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add animation delay for each nav item */
+.nav-links li:nth-child(1) a {
+    animation-delay: 0.1s;
+}
+.nav-links li:nth-child(2) a {
+    animation-delay: 0.2s;
+}
+.nav-links li:nth-child(3) a {
+    animation-delay: 0.3s;
+}
+
+/* Mobile Menu Styling */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+/* Desktop Styling */
+@media screen and (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        position: relative;
+        height: auto;
+        background: none;
+        box-shadow: none;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/111.png" alt="Sudhamrit Logo" style="height: 50px; width: auto;">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">About</a></li>
+                <li><a href="sweets.html" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">Products</a></li>
+                <li><a href="https://sudhastar1.onrender.com" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">Find a main store</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    
+
+
+
+    <!-- addvertisment section -->
+    <section id="advertisement" class="advertisement">
+        <marquee behavior="scroll" direction="left" scrollamount="8">
+            "Savor the Sweetness – Where Every Bite Honors Flavor and Heritage!"
+        </marquee>
+    </section>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+    <h1 style="position: relative; display: inline-block;">
+        Welcome To 
+        <img src="img/111.png" alt="Sudhamrit Logo" style="height: 100px; width: auto; margin: auto;">
+
+        <!-- Right-aligned tagline under logo -->
+        <span style="
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ec0404;
+            text-align: right;
+            margin-top: 5px;
+        ">
+            — A Division of Sudhastar
+        </span>
+    </h1>
+
+    <p>Where every bite is a celebration of flavor and love.</p>
+    <a href="sweets.html" class="btn">Explore Our Sweets</a>
+</section>
+
+
+
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Welcome to <strong>Sudhamrit</strong>, your destination for handcrafted delights. We use premium ingredients to create irresistible treats that brighten your day.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img-wrapper">
+                    <img src="img/v.jpg" alt="Sweet Bliss Shop" class="about-img">
+                    <img src="img/1.jpeg" alt="Sweet Bliss Shop" class="about-img">
+                    <img src="img/2.jpg" alt="Sweet Bliss Shop" class="about-img">
+                    <img src="img/3.jpeg" alt="Sweet Bliss Shop" class="about-img">
+                    <img src="img/4.avif" alt="Sweet Bliss Shop" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- addvertisment section 2 -->
+    <section id="advertisement" class="advertisement">
+        <div class="scrolling-text">
+            <p>"Experience the authentic flavors of India with Sudhamrit! 🍪🇮🇳"</p>
+        </div>
+    </section>
+    
+   
+    
+    <section class="quotes-section">
+        <div class="quote-card">
+            <p class="quote-text">"Indulge in the finest sweets and savor the happiness they bring."</p>
+            <p class="quote-author">- Sudhamrit</p>
+        </div>
+        <div class="quote-card">
+            <p class="quote-text">"Crafting joy in every bite, with love and fresh ingredients."</p>
+            <p class="quote-author">- Sudhamrit</p>
+        </div>
+    </section>
+
+    <!-- Add this section where you want to display offers -->
+    <div class="offers-section">
+        <!-- Left Header Image -->
+        <img src="img/80.png" alt="Left Header Decoration" class="header-image left-header-image">
+        
+        <!-- Right Header Image -->
+        <img src="img/80.png" alt="Right Header Decoration" class="header-image right-header-image">
+    
+        <h2>Special Offers</h2>
+        <div id="activeOffers" class="offers-container"></div>
+    </div>
+    
+    <style>
+        
+        .offers-section {
+            padding: 40px 20px;
+            background: #f8fafc url('img/79.png') no-repeat center center/cover; /* Background Image */
+            margin: 20px 0;
+            position: relative; /* Required for positioning the header images */
+            overflow: hidden; /* Ensures images don't overflow */
+        }
+        
+    
+        .offers-section h2 {
+            text-align: center;
+            color: #e23711;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 600;
+            position: relative; /* Ensures text stays above the background */
+            z-index: 2; /* Brings text above the header images */
+            font-family: 'Optima', sans-serif;
+        }
+    
+        .offers-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative; /* Ensures content stays above the background */
+            z-index: 1; /* Brings content above the background */
+        }
+    
+        .offer-item {
+            background: rgb(248, 244, 244);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            border: 2px solid #f59e0b;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .offer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        .offer-item h3 {
+            color: #1a237e;
+            margin: 0 0 15px 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+    
+        .offer-discount {
+            font-size: 2.5rem;
+            color: #f59e0b;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+        .offer-expiry {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    
+        .expiry-date {
+            color: #4b5563;
+            font-weight: 500;
+        }
+    
+        .expiry-time {
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    
+        .no-offers {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            padding: 30px;
+            width: 100%;
+        }
+    
+        /* Header Images */
+        .header-image {
+            width: 40%; /* Adjust as needed */
+            height: auto;
+            position: absolute;
+            top: 0;
+            z-index: 1; /* Ensures the images stay behind the heading */
+        }
+    
+        .left-header-image {
+            left: 0;
+        }
+    
+        .right-header-image {
+            right: 0;
+        }
+    
+        /* Background Image */
+        .offers-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent overlay for better readability */
+            z-index: 0; /* Ensures the overlay stays behind the content */
+        }
+    
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-image {
+                display: none; /* Hide header images on smaller screens */
+            }
+            .offers-section {
+                background: #f8fafc; /* Remove background image on smaller screens */
+            }
+        }
+    </style>
+
+    <script>
+        // Function to display active offers
+        function displayActiveOffers() {
+            const offers = JSON.parse(localStorage.getItem("offers")) || [];
+            const activeOffersContainer = document.getElementById("activeOffers");
+            const currentDate = new Date();
+
+            // Filter out expired offers
+            const activeOffers = offers.filter(offer => new Date(offer.expiry) > currentDate);
+
+            // Sort offers by expiry date (closest expiry first)
+            activeOffers.sort((a, b) => new Date(a.expiry) - new Date(b.expiry));
+
+            activeOffersContainer.innerHTML = activeOffers.map(offer => {
+                const expiryDate = new Date(offer.expiry);
+                
+                // Format date
+                const formattedDate = expiryDate.toLocaleDateString('en-IN', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+                
+                // Format time
+                const formattedTime = expiryDate.toLocaleTimeString('en-IN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+
+                return `
+                    <div class="offer-item">
+                        <h3>${offer.title}</h3>
+                        <div class="offer-discount">${offer.discount}% OFF</div>
+                        <div class="offer-expiry">
+                            <div class="expiry-date">Valid until ${formattedDate}</div>
+                            <div class="expiry-time">Ends at ${formattedTime}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Show "No active offers" message if there are none
+            if (activeOffers.length === 0) {
+                activeOffersContainer.innerHTML = `
+                    <div class="no-offers">
+                        <p>No active offers at the moment</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Call this function when the page loads
+        window.addEventListener('load', displayActiveOffers);
+    </script>
+
+
+
+
+
+
+
+    
+    <style>
+        /* Quotes Section */
+        .quotes-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #ffe259, #ffa751);
+            text-align: center;
+        }
+    
+        /* Quote Card Styling */
+        .quote-card {
+            background: linear-gradient(145deg, #fff6e5, #ffffff);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 350px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .quote-card:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+    
+        .quote-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+    
+        .quote-card:hover:before {
+            opacity: 1;
+        }
+    
+        /* Quote Text Styling */
+        .quote-text {
+            font-size: 1.6rem;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+    
+        /* Quote Author Styling */
+        .quote-author {
+            font-size: 1.3rem;
+            color: #fd002a;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+    
+        
+    
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Bestsellers</h2>
+                <p>Explore our most-loved treats, handcrafted to perfection, and made with the finest ingredients.</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card" style="animation: fadeInUp 1s;">
+                    <img src="img/143 ras malaio-1.jpg" alt="Rasgulla">
+                    <h3>Ras malai</h3>
+                    <p>Soft, syrupy, and melt-in-your-mouth Indian delicacy.</p>
+                </div>
+                <div class="product-card" style="animation: fadeInDown 1.2s;">
+                    <img src="img/108 kesar kaju katli-2.jpg" alt="Gulab Jamun">
+                    <h3>KajuKatali</h3>
+                    <p>Smooth, diamond-shaped cashew fudge infused with the richness of pure nuts and subtle sweetness.</p>
+                </div>
+                <div class="product-card" style="animation: fadeInUp 1.4s;">
+                    <img src="img/118 kalakand-2.jpg" alt="Barfi">
+                    <h3>Kalakand</h3>
+                    <p>Made with fresh milk, sugar, and a touch of cardamom, Kalakand is a melt-in-your-mouth traditional Indian sweet, perfect for festivals, celebrations, or satisfying your sweet cravings! 🍮✨</p>
+                </div>
+                <div class="product-card" style="animation: fadeInDown 1.6s;">
+                    <img src="img/78 gulab jamun-2.jpg" alt="Jalebi">
+                    <h3>Gulab jamun</h3>
+                    <p>Soft and spongy milk-based dumplings soaked in aromatic sugar syrup with a hint of cardamom.</p>
+                </div>
+                <div class="product-card" style="animation: fadeInUp 1.8s;">
+                    <img src="img/product-05.jpg" alt="Ladoo">
+                    <h3>Mysore Pak</h3>
+                    <p> A rich and fragrant sweet made with gram flour, ghee, and sugar, originating from Mysore.</p>
+                </div>
+                <div class="product-card" style="animation: fadeInDown 2s;">
+                    <img src="img/product-06.jpg" alt="Sandesh">
+                    <h3>Besan Laddu</h3>
+                    <p>A traditional sweet made from roasted gram flour, ghee, and sugar, rolled into round balls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="img/111.png" alt="Sudhamrit Logo" style="height: 50px; width: auto; margin: auto;">
+                <p>Crafting joy in every bite with the finest sweets and savories. Quality and taste you can trust!</p>
+            </div>
+            
+            <!-- New contact info section -->
+            <div class="footer-contact">
+                <h4>Contact Information</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +91 9867831302,  +91 98677031302, +91 9892731302</li>
+                    <li><i class="fas fa-envelope"></i> thmainstore@mysudhamrit.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Sri Ma Trust Building,OPP. Sri Ma Vidyalaya,
+                        Off Ghodhbunder Road,patlipada, , Thane (W), 
+                        Maharashtra - 400607</li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#" id="open-contact-popup">Contact Us</a></li>
+                    <!-- <li><a href="#reviews">Reviews</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="mysudhamrit-privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social" style="text-align: center;">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/profile.php?id=61552864778211&mibextid=ZbWKwL" class="social-icon" style="display: inline-block; margin-right: 15px; font-size: 24px; color: #3b5998;">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mysudhamrit?igsh=cnMwMjZnMnZxcmk2" class="social-icon" style="display: inline-block; margin-right: 15px; font-size: 24px; color: #E1306C;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- <a href="#" class="social-icon" style="display: inline-block; margin-right: 15px; font-size: 24px; color: #1DA1F2;">
+                    <i class="fab fa-twitter"></i>
+                </a> -->
+                <a href="https://www.youtube.com/@sritaramamission" class="social-icon" style="display: inline-block; margin-right: 15px; font-size: 24px; color: #FF0000;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Contact Section -->
+    <section id="contact-section" style="padding: 40px; background: #f9f9f9; display: none;">
+        <div class="contact-container" style="background: linear-gradient(45deg, #ff6f00, #efef03); padding: 30px; max-width: 600px; margin: 0 auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); text-align: center;">
+            <h2 style="margin: 10px 0; font-size: 26px; color: #333; font-family: 'Arial', sans-serif;">Contact Us</h2>
+            <p style="font-size: 15px; color: #666; margin-bottom: 25px; font-family: 'Verdana', sans-serif;">We'd love to hear from you! Let us know your inquiries or orders below.</p>
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" style="text-align: left;">
+                <input type="hidden" name="access_key" value="af5cfd84-b830-4363-96bf-6639c02403f2">
+                <label for="name" style="font-size: 14px; color: #333; margin-bottom: 5px; display: block;">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                <label for="email" style="font-size: 14px; color: #333; margin-bottom: 5px; display: block;">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                <label for="mobile" style="font-size: 14px; color: #333; margin-bottom: 5px; display: block;">Your Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                <label for="message" style="font-size: 14px; color: #333; margin-bottom: 5px; display: block;">Your Message</label>
+                <textarea id="message" name="message" placeholder="Type your message" rows="4" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; margin-bottom: 20px;"></textarea>
+                <button type="submit" style="width: 100%; padding: 12px; background-color: #ff5e57; border: none; color: #fff; border-radius: 8px; font-size: 16px; cursor: pointer; font-family: 'Arial', sans-serif; font-weight: bold;">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- JavaScript for Toggle Visibility -->
+    <script>
+        document.getElementById('open-contact-popup').addEventListener('click', function (e) {
+            e.preventDefault();
+            const contactSection = document.getElementById('contact-section');
+            contactSection.style.display = contactSection.style.display === 'none' || contactSection.style.display === '' ? 'block' : 'none';
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+    
+    
+        
+        
+    
+        <!-- Google Map Section -->
+        <section class="google-map-section" style="background: linear-gradient(45deg, #ff6f00, #efef03)">
+            <h2>Find Us Here</h2>
+            <p>Visit our store at the following location:</p>
+            
+            <!-- Google Map Embed -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.7386567367657!2d72.97727627498314!3d19.25021834648059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bbca9d0554a9%3A0x4efd4dc3dc595883!2sSudhamrit%20-%20Sweets%20%26%20Savouries!5e0!3m2!1sen!2sin!4v1732946765104!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        
+    </footer>
+    
+    
+    <div class="footer-bottom" style="background-color:linear-gradient(45deg, #f2f2f2, #e0e0e0); padding: 20px; text-align: center;">
+        <p>&copy; 2024 Sudhamrit. Crafted with ❤️. All Rights Reserved.</p>
+    </div>
+    
+    
+
+    <script src="script.js"></script>
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+    
+        // Firebase configuration (replace with your credentials)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKgLCuquanDTv_Gu9f77gvZWHApir9P64",
+            authDomain: "suhdamrit-81ff6.firebaseapp.com",
+            projectId: "suhdamrit-81ff6",
+            storageBucket: "suhdamrit-81ff6.firebasestorage.app",
+            messagingSenderId: "598439108275",
+            appId: "1:598439108275:web:e1f4eeec0e9948d2c15ac6",
+            measurementId: "G-RGZNRSTNKF"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+    
+        // Function to fetch and display offers from Firebase
+        function fetchAndDisplayOffers() {
+            const offersRef = ref(database, 'offers');
+            const activeOffersContainer = document.getElementById("activeOffers");
+    
+            onValue(offersRef, (snapshot) => {
+                const offers = snapshot.val();
+                const currentDate = new Date();
+    
+                // Clear existing content
+                activeOffersContainer.innerHTML = "";
+    
+                if (offers) {
+                    // Filter out expired offers
+                    const activeOffers = Object.keys(offers).filter(key => {
+                        const expiryDate = new Date(offers[key].expiry);
+                        return expiryDate > currentDate;
+                    });
+    
+                    // Sort offers by expiry date (closest expiry first)
+                    activeOffers.sort((a, b) => new Date(offers[a].expiry) - new Date(offers[b].expiry));
+    
+                    // Display active offers
+                    activeOffers.forEach(key => {
+                        const offer = offers[key];
+                        const expiryDate = new Date(offer.expiry);
+    
+                        // Format date
+                        const formattedDate = expiryDate.toLocaleDateString('en-IN', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        });
+    
+                        // Format time
+                        const formattedTime = expiryDate.toLocaleTimeString('en-IN', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true
+                        });
+    
+                        const offerItem = `
+                            <div class="offer-item">
+                                <h3>${offer.title}</h3>
+                                <div class="offer-discount">${offer.discount}% OFF</div>
+                                <div class="offer-expiry">
+                                    <div class="expiry-date">Valid until ${formattedDate}</div>
+                                    <div class="expiry-time">Ends at ${formattedTime}</div>
+                                </div>
+                            </div>
+                        `;
+                        activeOffersContainer.insertAdjacentHTML('beforeend', offerItem);
+                    });
+    
+                    // Show "No active offers" message if there are none
+                    if (activeOffers.length === 0) {
+                        activeOffersContainer.innerHTML = `
+                            <div class="no-offers">
+                                <p>No active offers at the moment</p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    activeOffersContainer.innerHTML = `
+                        <div class="no-offers">
+                            <p>No active offers at the moment</p>
+                        </div>
+                    `;
+                }
+            });
+        }
+    
+        // Call the function when the page loads
+        window.addEventListener('load', fetchAndDisplayOffers);
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            // Add slide down animation when menu opens
+            if(navLinks.classList.contains('active')) {
+                navLinks.style.height = navLinks.scrollHeight + 'px';
+            } else {
+                navLinks.style.height = '0';
+            }
+        });
+    </script>
+
+</body>
+</html>
