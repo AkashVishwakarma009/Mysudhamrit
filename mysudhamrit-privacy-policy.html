@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | MySudhamrit</title>
-    <meta name="description" content="Privacy Policy for MySudhamrit Food Ordering App by SudhaStar ">
+    <meta name="description" content="Privacy Policy for MySudhamrit Food Ordering App by SudhaStar">
     <style>
         * {
             margin: 0;
@@ -13,210 +13,467 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.7;
-            color: #333;
-            background-color: #f9fafb;
+            color: #1f2937;
+            background: linear-gradient(135deg, #fef3f2 0%, #fff7ed 50%, #fef2f2 100%);
+            min-height: 100vh;
         }
 
         .header {
-            background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 80px 20px 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-20px, 20px) rotate(-5deg); }
+            75% { transform: translate(20px, 20px) rotate(3deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
+            opacity: 0.95;
+            font-size: 1.3rem;
+            font-weight: bold;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            max-width: 1100px;
+            margin: -60px auto 0;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #dc2626;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #fef2f2;
+            transform: translateX(-5px);
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .content {
             background: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
         }
 
-        .meta {
-            background: #f3f4f6;
-            padding: 15px 20px;
+        .toc {
+            background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 2px solid #fee2e2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .toc h3 {
+            margin: 0 0 20px 0;
+            color: #991b1b;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .toc h3::before {
+            content: '📋';
+            font-size: 1.5rem;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .toc a {
+            color: #374151;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            display: inline-block;
             border-radius: 8px;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-            color: #666;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            color: #dc2626;
+            background: white;
+            transform: translateX(5px);
         }
 
         h2 {
-            color: #E53935;
-            font-size: 1.5rem;
-            margin: 35px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #fee2e2;
+            color: #dc2626;
+            font-size: 2rem;
+            margin: 50px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #fecaca;
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #dc2626;
         }
 
         h3 {
-            color: #444;
-            font-size: 1.15rem;
-            margin: 25px 0 12px 0;
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3::before {
+            content: '▸';
+            color: #dc2626;
+            font-weight: bold;
         }
 
         p {
-            margin-bottom: 15px;
-            color: #555;
+            margin-bottom: 18px;
+            color: black;
+            font-size: 1.05rem;
+            
         }
 
         ul, ol {
-            margin: 15px 0 15px 25px;
-            color: #555;
+            margin: 20px 0 20px 35px;
+            color: #4b5563;
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            padding-left: 5px;
+        }
+
+        ul li::marker {
+            color: #dc2626;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            font-size: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 18px 20px;
             text-align: left;
-            border: 1px solid #e5e7eb;
         }
 
         th {
-            background: #f9fafb;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             font-weight: 600;
-            color: #374151;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
-        tr:hover {
+        td {
+            background: white;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
             background: #fef2f2;
         }
 
         .highlight-box {
-            background: #fef2f2;
-            border-left: 4px solid #E53935;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+            background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+            border-left: 5px solid #dc2626;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 2rem;
+            opacity: 0.3;
         }
 
         .contact-box {
-            background: #f0fdf4;
-            border: 1px solid #86efac;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border: 2px solid #86efac;
+            padding: 35px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '📧';
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            font-size: 3rem;
+            opacity: 0.2;
         }
 
         .contact-box h3 {
             color: #166534;
             margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-box h3::before {
+            content: '';
+        }
+
+        .contact-box p {
+            margin-bottom: 12px;
+            color: #065f46;
         }
 
         a {
-            color: #E53935;
+            color: #dc2626;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         a:hover {
+            color: #991b1b;
             text-decoration: underline;
         }
 
         .footer {
             text-align: center;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 40px;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-top: 50px;
+            border-top: 2px solid rgba(220, 38, 38, 0.1);
+            background: linear-gradient(to bottom, transparent, rgba(254, 242, 242, 0.3));
+            border-radius: 24px;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #E53935;
-            font-weight: 500;
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
-        .toc {
+        .footer-links a {
+            color: #6b7280;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .footer-links a:hover {
+            color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .section-intro {
             background: #f9fafb;
             padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .toc h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .toc ol {
-            margin-bottom: 0;
-        }
-
-        .toc a {
-            color: #555;
-        }
-
-        .toc a:hover {
-            color: #E53935;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 4px solid #dc2626;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
             }
 
             .content {
-                padding: 25px;
+                padding: 30px 25px;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
             }
 
             h2 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             table {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             th, td {
-                padding: 8px 10px;
+                padding: 12px 15px;
+            }
+
+            .toc {
+                padding: 25px;
+            }
+
+            .contact-box, .highlight-box {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Privacy Policy</h1>
-        <p>MySudhamrit - Food Ordering App</p>
+        <div class="header-content">
+            <h1>Privacy Policy</h1>
+            <p>MySudhamrit - Food Ordering App</p>
+        </div>
     </div>
 
     <div class="container">
-        <a href="/" class="back-link">← Back to Home</a>
+        <div class="nav-bar">
+            <a href="/" class="back-link">
+                <span>←</span>
+                <span>Back to Home</span>
+            </a>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>Effective: Dec 25, 2024</span>
+                </div>
+                <div class="meta-item">
+                    <span>🔄</span>
+                    <span>Updated: Dec 25, 2024</span>
+                </div>
+            </div>
+        </div>
 
         <div class="content">
-            <div class="meta">
-                <strong>Effective Date:</strong> December 25, 2024 | 
-                <strong>Last Updated:</strong> December 25, 2024
-            </div>
-
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ol>
@@ -235,10 +492,12 @@
                 </ol>
             </div>
 
-            <h2>Introduction</h2>
-            <p>Welcome to MySudhamrit ("we," "our," or "us"), a food ordering and delivery service operated by <strong>SudhaStar  Pvt. Ltd.</strong> This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://mysudhamrit.in">mysudhamrit.in</a> and use our mobile application (collectively, the "Platform").</p>
-            
-            <p>Please read this Privacy Policy carefully. By accessing or using our Platform, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access the Platform.</p>
+            <div class="section-intro">
+                <h2 style="margin-top: 0; border: none; padding: 0;">Introduction</h2>
+                <p>Welcome to MySudhamrit ("we," "our," or "us"), a food ordering and delivery service operated by <strong>SudhaStar Pvt. Ltd.</strong> This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://mysudhamrit.in">mysudhamrit.in</a> and use our mobile application (collectively, the "Platform").</p>
+                
+                <p style="margin-bottom: 0;">Please read this Privacy Policy carefully. By accessing or using our Platform, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access the Platform.</p>
+            </div>
 
             <h2 id="information-collect">1. Information We Collect</h2>
             
@@ -478,10 +737,18 @@
             
             <div class="contact-box">
                 <h3>Grievance Officer</h3>
-                <p><strong>Company:</strong> SudhaStar  Pvt. Ltd.</p>
-                <p><strong>Email:</strong> <a href="mailto:grievance@mysudhamrit.in">grievance@mysudhamrit.in</a></p>
-                <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-                <p><strong>Address:</strong> [Your Company Address]</p>
+                <p><strong>Company:</strong> SudhaStar Pvt. Ltd.</p>
+                <p><strong>Email:</strong> <a href="mailto:grievance@mysudhamrit.in">thmainstore@mysudhamrit.com</a></p>
+                <p><strong>Phone:</strong> +91 9867831302, +91 98677031302, +91 9892731302</p>
+                <p><strong>Address:</strong><br>
+                 Building No./Flat No.: SHOP NO. 9<br>
+                 Name Of Premises/Building: OPP SRI MA VIDYALAYA<br>
+                 Road/Street: NR HIRANANDANI ESTATE<br>
+                 City/Town/Village: THANE<br>
+                 District: Thane<br>
+                 State: Maharashtra<br>
+                 PIN Code: 400607<br>
+                 India</p>
                 <p style="margin-bottom: 0;"><strong>Response Time:</strong> We will acknowledge your complaint within 24 hours and resolve it within 30 days.</p>
             </div>
 
@@ -491,29 +758,34 @@
             <div class="contact-box">
                 <h3>MySudhamrit Support</h3>
                 <p><strong>Email:</strong> <a href="mailto:support@mysudhamrit.in">support@mysudhamrit.in</a></p>
-                <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+                <p><strong>Phone:</strong> +91 9867831302, +91 98677031302, +91 9892731302</p>
                 <p><strong>Website:</strong> <a href="https://mysudhamrit.in/contact">https://mysudhamrit.in/contact</a></p>
                 <p style="margin-top: 15px;"><strong>Registered Office:</strong><br>
-                SudhaStar  Pvt. Ltd.<br>
-                [Your Complete Address]<br>
-                [City, State, PIN Code]<br>
-                India</p>
+                SudhaStar Pvt. Ltd.<br>
+                 Building No./Flat No.: SHOP NO. 9<br>
+                 Name Of Premises/Building: OPP SRI MA VIDYALAYA<br>
+                 Road/Street: NR HIRANANDANI ESTATE<br>
+                 City/Town/Village: THANE<br>
+                 District: Thane<br>
+                 State: Maharashtra<br>
+                 PIN Code: 400607<br>
+                 India</p>
             </div>
 
             <h2>13. Consent</h2>
             <p>By using our Platform, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
             <div class="highlight-box">
-                <em>This Privacy Policy is governed by and construed in accordance with the laws of India. Any disputes arising under this Privacy Policy shall be subject to the exclusive jurisdiction of the courts in [Your City], India.</em>
+                <em>This Privacy Policy is governed by and construed in accordance with the laws of India. Any disputes arising under this Privacy Policy shall be subject to the exclusive jurisdiction of the courts in Thane, India.</em>
             </div>
 
             <div class="footer">
-                <p><strong>© 2024 SudhaStar  Pvt. Ltd. All rights reserved.</strong></p>
-                <p style="margin-top: 10px;">
-                    <a href="/terms">Terms of Service</a> | 
-                    <a href="/refund-policy">Refund Policy</a> | 
+                <p><strong>© 2024 SudhaStar Pvt. Ltd. All rights reserved.</strong></p>
+                <div class="footer-links">
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/refund-policy">Refund Policy</a>
                     <a href="/contact">Contact Us</a>
-                </p>
+                </div>
             </div>
         </div>
     </div>
